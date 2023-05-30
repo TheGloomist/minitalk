@@ -6,7 +6,7 @@
 /*   By: izaitcev <izaitcev@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/17 16:02:24 by izaitcev      #+#    #+#                 */
-/*   Updated: 2023/05/30 18:30:57 by izaitcev      ########   odam.nl         */
+/*   Updated: 2023/05/30 21:51:34 by izaitcev      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	mini_atoi(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		conv = (conv * 10) + (str[i] - '0');
-		if (conv  > INT_MAX || conv < INT_MIN)
+		if (conv > INT_MAX || conv < INT_MIN)
 			break ;
 		i++;
 	}
@@ -40,14 +40,14 @@ int	mini_atoi(const char *str)
 	return ((int)conv);
 }
 
-void	handle_client_sig()
+void	handle_client_sig(void)
 {
 	g_is_validated = true;
 }
 
 bool	wait_for_stuff(void)
 {
-	int times_slept;
+	int	times_slept;
 
 	times_slept = 0;
 	while (!g_is_validated)
@@ -106,10 +106,10 @@ int	main(int argc, char **argv)
 	while (argv[2][i] != '\0')
 	{
 		if (send_byte(argv[2][i], pid) == 1)
-			return(1);
+			return (1);
 		i++;
 	}
 	if (send_byte('\n', pid) == 1)
-			return(1);
+		return (1);
 	return (0);
 }
