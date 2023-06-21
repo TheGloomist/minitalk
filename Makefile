@@ -34,8 +34,6 @@ $(OBJDIR):
 
 bonus: all
 
-server: $(SERVER_TARGET)
-
 clean:
 	@echo cleaning .o files
 	@make -C libft clean

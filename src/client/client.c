@@ -6,7 +6,7 @@
 /*   By: izaitcev <izaitcev@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/05/17 16:02:24 by izaitcev      #+#    #+#                 */
-/*   Updated: 2023/05/30 21:51:34 by izaitcev      ########   odam.nl         */
+/*   Updated: 2023/05/31 17:18:18 by izaitcev      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,9 @@ int	mini_atoi(const char *str)
 	return ((int)conv);
 }
 
-void	handle_client_sig(void)
+void	handle_client_sig(int sig)
 {
+	(void) sig;
 	g_is_validated = true;
 }
 
