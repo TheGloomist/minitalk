@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_split.c                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: izaitcev <izaitcev@student.codam.nl>         +#+                     */
+/*   By: iazaitce <iazaitce@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/03/25 19:01:35 by izaitcev      #+#    #+#                 */
-/*   Updated: 2022/04/30 22:16:01 by izaitcev      ########   odam.nl         */
+/*   Created: 2025/06/10 16:44:08 by iazaitce      #+#    #+#                 */
+/*   Updated: 2025/06/12 20:25:21 by iazaitce      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	word_count(const char *s, char c)
 	return (w_count);
 }
 
-int	get_length(char const *s, char c)
+static int	get_len(char const *s, char c)
 {
 	int	count;
 
@@ -46,7 +46,7 @@ int	get_length(char const *s, char c)
 	return (count);
 }
 
-char	**handle_error(char **s, int const len)
+static char	**handle_error(char **s, int const len)
 {
 	int	i;
 
@@ -65,11 +65,10 @@ char	**handle_error(char **s, int const len)
 	return (NULL);
 }
 
-char	**split_s(
+static char	**splitting(
 	char const	*s,
 	char		**str_array,
-	char const	c,
-	int const	w_count)
+	char const	c)
 {
 	int	i;
 	int	j;
@@ -84,13 +83,14 @@ char	**split_s(
 			i++;
 			continue ;
 		}
-		w_len = get_length(&s[i], c);
+		w_len = get_len(&s[i], c);
 		str_array[j] = ft_substr(s, i, w_len);
-		if (str_array[j] == NULL)
-			return (handle_error(str_array, w_count));
+		if (!str_array[j])
+			return (handle_error(str_array, j));
 		j++;
-		i += w_len;
+		i = w_len + i;
 	}
+	str_array[j] = NULL;
 	return (str_array);
 }
 
@@ -99,11 +99,11 @@ char	**ft_split(char const *s, char c)
 	char	**str_array;
 	int		w_count;
 
-	if (s == NULL)
+	if (!s)
 		return (NULL);
 	w_count = word_count(s, c);
-	str_array = ft_calloc(1, (w_count + 1) * sizeof(char *));
-	if (str_array == NULL)
+	str_array = (char **)malloc(sizeof(char *) * (w_count + 1));
+	if (!str_array)
 		return (NULL);
 	if (s[0] == '\0')
 	{
@@ -113,8 +113,10 @@ char	**ft_split(char const *s, char c)
 	if (c == '\0')
 	{
 		str_array[0] = ft_strdup(s);
+		if (!str_array[0])
+			return (handle_error(str_array, 0));
 		str_array[1] = NULL;
 		return (str_array);
 	}
-	return (split_s(s, str_array, c, w_count));
+	return (splitting(s, str_array, c));
 }

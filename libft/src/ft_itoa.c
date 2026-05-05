@@ -3,23 +3,16 @@
 /*                                                        ::::::::            */
 /*   ft_itoa.c                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: izaitcev <izaitcev@student.codam.nl>         +#+                     */
+/*   By: iazaitce <iazaitce@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/03/25 18:57:26 by izaitcev      #+#    #+#                 */
-/*   Updated: 2022/04/30 22:14:29 by izaitcev      ########   odam.nl         */
+/*   Created: 2025/06/10 18:51:40 by iazaitce      #+#    #+#                 */
+/*   Updated: 2025/06/12 19:16:31 by iazaitce      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	check_neg(long int n)
-{
-	if (n < 0)
-		return (-1);
-	return (1);
-}
-
-int	n_length(long int n)
+static size_t	n_length(long int n)
 {
 	int	len;
 
@@ -37,41 +30,30 @@ int	n_length(long int n)
 	return (len);
 }
 
-int	rev_number(long int n, int i, char *str)
-{
-	char	c;
-
-	c = (n % 10) + '0';
-	n = n / 10;
-	if (n > 0)
-		i = rev_number(n, i, str);
-	str[i] = c;
-	i++;
-	return (i);
-}
-
 char	*ft_itoa(int n)
 {
-	char		*str;
-	int			neg;
-	int			i;
-	int			len;
-	long int	num;
+	long long	num;
+	char		*char_arr;
+	size_t		len;
 
 	num = n;
-	len = n_length(n);
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
+	if (n == 0)
+		return (ft_strdup("0"));
+	len = n_length(num);
+	char_arr = (char *)malloc(sizeof(char) * len + 1);
+	if (!char_arr)
 		return (NULL);
-	neg = check_neg(num);
-	i = 0;
-	if (neg == -1)
+	char_arr[len] = '\0';
+	if (num < 0)
 	{
-		str[i] = '-';
+		char_arr[0] = '-';
 		num = num * -1;
-		i++;
 	}
-	rev_number(num, i, str);
-	str[len] = '\0';
-	return (str);
+	while (num > 0)
+	{
+		len--;
+		char_arr[len] = num % 10 + '0';
+		num = num / 10;
+	}
+	return (char_arr);
 }

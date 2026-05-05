@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_isdigit.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: izaitcev <izaitcev@student.codam.nl>         +#+                     */
+/*   By: iazaitce <iazaitce@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/03/25 18:56:49 by izaitcev      #+#    #+#                 */
-/*   Updated: 2022/03/29 16:13:51 by izaitcev      ########   odam.nl         */
+/*   Created: 2025/04/30 14:46:41 by iazaitce      #+#    #+#                 */
+/*   Updated: 2025/05/21 01:02:32 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,5 @@ int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
-	else
-		return (0);
+	return (0);
 }

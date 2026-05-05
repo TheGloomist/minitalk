@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_memchr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: izaitcev <izaitcev@student.codam.nl>         +#+                     */
+/*   By: iazaitce <iazaitce@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/03/26 17:12:57 by izaitcev      #+#    #+#                 */
-/*   Updated: 2022/04/30 22:15:18 by izaitcev      ########   odam.nl         */
+/*   Created: 2025/05/22 14:31:58 by iazaitce      #+#    #+#                 */
+/*   Updated: 2025/05/22 14:38:13 by iazaitce      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

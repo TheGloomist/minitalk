@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_printf.h                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: izaitcev <izaitcev@student.codam.nl>         +#+                     */
+/*   By: iazaitce <iazaitce@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/05/16 16:31:44 by izaitcev      #+#    #+#                 */
-/*   Updated: 2023/03/07 18:24:59 by izaitcev      ########   odam.nl         */
+/*   Created: 2025/11/14 18:16:10 by iazaitce      #+#    #+#                 */
+/*   Updated: 2025/11/20 16:36:20 by iazaitce      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 # include <unistd.h>
 
 int	ft_printf(const char *format, ...);
-int	prntf_strlen(char *str);
+int	ft_strlen(char *str);
 int	print_str(char *str);
 int	print_char(int c);
-int	print_nbr(long int n);
+int	print_num(long int n);
 int	print_unsigned_dec(unsigned int n);
-int	print_lhex(unsigned long n);
+int	print_lowhex(unsigned long n);
 int	print_uphex(unsigned int n);
+int	print_pointer(unsigned long n);
 
 #endif

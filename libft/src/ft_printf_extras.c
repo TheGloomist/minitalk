@@ -1,18 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_printf_nbr.c                                    :+:    :+:            */
+/*   ft_printf_extras.c                                 :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: izaitcev <izaitcev@student.codam.nl>         +#+                     */
+/*   By: iazaitce <iazaitce@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/06/18 21:56:17 by izaitcev      #+#    #+#                 */
-/*   Updated: 2022/09/15 15:58:08 by izaitcev      ########   odam.nl         */
+/*   Created: 2025/11/14 18:17:34 by iazaitce      #+#    #+#                 */
+/*   Updated: 2025/11/20 15:00:58 by iazaitce      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_nbr(long int num)
+int	ft_strlen(char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+int	print_str(char *str)
+{
+	if (!str)
+		return (write(1, "(null)", 6));
+	return (write(1, str, ft_strlen(str)));
+}
+
+int	print_char(int c)
+{
+	return (write(1, &c, 1));
+}
+
+int	print_num(long int num)
 {
 	char	c;
 	int		neg;
@@ -24,7 +46,7 @@ int	print_nbr(long int num)
 		neg = print_char('-');
 	}
 	if (num >= 10)
-		return (print_nbr(num / 10) + print_nbr(num % 10) + neg);
+		return (print_num(num / 10) + print_num(num % 10) + neg);
 	c = num + '0';
 	return (write(1, &c, 1) + neg);
 }

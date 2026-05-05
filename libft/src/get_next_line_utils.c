@@ -3,23 +3,46 @@
 /*                                                        ::::::::            */
 /*   get_next_line_utils.c                              :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: izaitcev <izaitcev@student.codam.nl>         +#+                     */
+/*   By: iazaitce <iazaitce@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/08/13 14:15:58 by izaitcev      #+#    #+#                 */
-/*   Updated: 2023/03/03 18:29:23 by izaitcev      ########   odam.nl         */
+/*   Created: 2025/06/13 16:28:43 by iazaitce      #+#    #+#                 */
+/*   Updated: 2025/11/21 17:54:17 by iazaitce      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	protected_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
-	size_t	ret;
+	size_t	ret_val;
 
-	ret = 0;
+	ret_val = 0;
 	if (!str)
-		return (ret);
-	while (str[ret] != '\0')
-		ret++;
-	return (ret);
+		return (ret_val);
+	while (str[ret_val] != '\0')
+		ret_val++;
+	return (ret_val);
+}
+
+char	*read_error(char *to_free)
+{
+	free(to_free);
+	return (NULL);
+}
+
+void	offset(char *to_store, int nl_pos)
+{
+	int	i;
+
+	i = 0;
+	while (to_store[nl_pos + i] != '\0')
+	{
+		to_store[i] = to_store[nl_pos + i];
+		i++;
+	}
+	while (to_store[i] != '\0')
+	{
+		to_store[i] = '\0';
+		i++;
+	}
 }

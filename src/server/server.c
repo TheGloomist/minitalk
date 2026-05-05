@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   server.c                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: izaitcev <izaitcev@student.codam.nl>         +#+                     */
+/*   By: iazaitce <iazaitce@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/05/17 16:02:21 by izaitcev      #+#    #+#                 */
-/*   Updated: 2023/05/30 21:53:20 by izaitcev      ########   odam.nl         */
+/*   Created: 2026/05/05 18:46:38 by iazaitce      #+#    #+#                 */
+/*   Updated: 2026/05/05 18:46:41 by iazaitce      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

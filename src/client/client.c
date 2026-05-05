@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   client.c                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: izaitcev <izaitcev@student.codam.nl>         +#+                     */
+/*   By: iazaitce <iazaitce@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/05/17 16:02:24 by izaitcev      #+#    #+#                 */
-/*   Updated: 2023/05/31 17:18:18 by izaitcev      ########   odam.nl         */
+/*   Created: 2026/05/05 18:46:17 by iazaitce      #+#    #+#                 */
+/*   Updated: 2026/05/05 18:46:26 by iazaitce      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

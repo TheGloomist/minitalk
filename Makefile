@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: iazaitce <iazaitce@student.codam.nl>         +#+                      #
+#                                                    +#+                       #
+#    Created: 2026/05/05 18:47:12 by iazaitce      #+#    #+#                  #
+#    Updated: 2026/05/05 18:52:26 by iazaitce      ########   odam.nl          #
+#                                                                              #
+# **************************************************************************** #
+
 SERVER_TARGET = server
 CLIENT_TARGET = client
 
@@ -5,7 +17,7 @@ SERVER_SRC = server.c
 CLIENT_SRC = client.c
 
 CFLAGS = -Wall -Werror -Wextra #-g -fsanitize=address
-CC = gcc
+CC = cc
 
 OBJDIR = objs
 CLIENT_OBJ = $(addprefix objs/, $(CLIENT_SRC:%.c=%.o))
@@ -24,10 +36,10 @@ $(CLIENT_TARGET): $(CLIENT_OBJ)
 	@$(CC) $(CLIENT_OBJ) $(CFLAGS) libft/libft.a -o $(CLIENT_TARGET)
 
 $(OBJDIR)/%.o: src/server/%.c | $(OBJDIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJDIR)/%.o: src/client/%.c | $(OBJDIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJDIR):
 	@mkdir -p objs

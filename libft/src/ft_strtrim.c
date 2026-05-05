@@ -3,42 +3,42 @@
 /*                                                        ::::::::            */
 /*   ft_strtrim.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: izaitcev <izaitcev@student.codam.nl>         +#+                     */
+/*   By: iazaitce <iazaitce@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/03/25 19:05:30 by izaitcev      #+#    #+#                 */
-/*   Updated: 2022/04/30 22:17:36 by izaitcev      ########   odam.nl         */
+/*   Created: 2025/05/22 14:33:18 by iazaitce      #+#    #+#                 */
+/*   Updated: 2025/06/10 21:08:03 by iazaitce      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	in_set(char const *set, char c)
+static bool	ft_is_in_set(char const *set, char c)
 {
 	while (*set)
 	{
 		if (*set == c)
-			return (1);
+			return (true);
 		set++;
 	}
-	return (0);
+	return (false);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	i;
-	int	count;
+	size_t	i;
+	size_t	end;
 
-	i = 0;
 	if (!s1 || !set)
 		return (NULL);
-	while (in_set(set, *s1) && *s1)
+	while (s1 && (ft_is_in_set(set, *s1) == true))
 		s1++;
-	count = 0;
+	i = 0;
+	end = 0;
 	while (s1[i])
 	{
-		if (!in_set(set, s1[i]))
-			count = i + 1;
+		if (ft_is_in_set(set, s1[i]) == false)
+			end = i + 1;
 		i++;
 	}
-	return (ft_substr(s1, 0, count));
+	return (ft_substr(s1, 0, end));
 }

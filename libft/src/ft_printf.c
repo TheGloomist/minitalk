@@ -3,63 +3,58 @@
 /*                                                        ::::::::            */
 /*   ft_printf.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: izaitcev <izaitcev@student.codam.nl>         +#+                     */
+/*   By: iazaitce <iazaitce@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/05/16 16:28:47 by izaitcev      #+#    #+#                 */
-/*   Updated: 2023/03/07 18:30:34 by izaitcev      ########   odam.nl         */
+/*   Created: 2025/07/23 19:03:49 by iazaitce      #+#    #+#                 */
+/*   Updated: 2026/05/05 17:33:41 by iazaitce      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdarg.h>
-#include <unistd.h>
+#include <stdio.h>
+#include <limits.h>
 
-static int	check_conv(va_list args, char format)
+static int	conversion_check(va_list args, char format)
 {
-	size_t	len;
-
-	len = 0;
 	if (format == 'c')
-		len += print_char(va_arg(args, int));
+		return (print_char(va_arg(args, int)));
 	else if (format == 's')
-		len += print_str(va_arg(args, char *));
+		return (print_str(va_arg(args, char *)));
 	else if (format == 'p')
-		return (write(1, "0x", 2) + print_lhex(va_arg(args, unsigned long)));
-	else if (format == 'd')
-		len += print_nbr(va_arg(args, int));
-	else if (format == 'i')
-		len += print_nbr(va_arg(args, int));
+		return (print_pointer(va_arg(args, unsigned long)));
+	else if (format == 'd' || format == 'i')
+		return (print_num(va_arg(args, int)));
 	else if (format == 'u')
-		len += print_unsigned_dec(va_arg(args, unsigned int));
+		return (print_unsigned_dec(va_arg(args, unsigned int)));
 	else if (format == 'x')
-		len += print_lhex(va_arg(args, unsigned int));
+		return (print_lowhex(va_arg(args, unsigned int)));
 	else if (format == 'X')
-		len += print_uphex(va_arg(args, unsigned int));
+		return (print_uphex(va_arg(args, unsigned int)));
 	else if (format == '%')
 		return (write(1, "%", 1));
-	return (len);
+	return (0);
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	size_t	i;
-	size_t	res;
+	size_t	return_value;
 
 	i = 0;
-	res = 0;
+	return_value = 0;
 	va_start(args, format);
 	while (format[i])
 	{
 		if (format[i] == '%')
 		{
 			i++;
-			res += check_conv(args, format[i]);
+			return_value += conversion_check(args, format[i]);
 		}
 		else
-			res += write(1, &format[i], 1);
+			return_value += write(1, &format[i], 1);
 		i++;
 	}
 	va_end(args);
-	return (res);
+	return (return_value);
 }

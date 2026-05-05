@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   get_next_line.h                                    :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: izaitcev <izaitcev@student.codam.nl>         +#+                     */
+/*   By: iazaitce <iazaitce@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/08/13 14:16:06 by izaitcev      #+#    #+#                 */
-/*   Updated: 2023/04/01 17:14:52 by izaitcev      ########   odam.nl         */
+/*   Created: 2025/06/13 16:28:46 by iazaitce      #+#    #+#                 */
+/*   Updated: 2025/11/24 14:06:47 by iazaitce      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 
 char	*get_next_line(int fd);
 int		find_newline(char *line);
-size_t	protected_strlen(const char *str);
+size_t	ft_strlen(const char *str);
+char	*read_error(char *to_free);
+void	offset(char *to_store, int find_nl);
 
 #endif

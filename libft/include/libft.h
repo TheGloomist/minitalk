@@ -3,16 +3,18 @@
 /*                                                        ::::::::            */
 /*   libft.h                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: izaitcev <izaitcev@student.codam.nl>         +#+                     */
+/*   By: iazaitce <iazaitce@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/03/25 19:09:19 by izaitcev      #+#    #+#                 */
-/*   Updated: 2023/04/01 17:15:00 by izaitcev      ########   odam.nl         */
+/*   Created: 2026/05/05 18:44:34 by iazaitce      #+#    #+#                 */
+/*   Updated: 2026/05/05 18:44:41 by iazaitce      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdlib.h>
+# include <limits.h>
+# include <stdbool.h>
 # include "get_next_line.h"
 # include "printf.h"
 

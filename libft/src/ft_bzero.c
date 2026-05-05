@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_bzero.c                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: izaitcev <izaitcev@student.codam.nl>         +#+                     */
+/*   By: iazaitce <iazaitce@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/03/25 18:54:25 by izaitcev      #+#    #+#                 */
-/*   Updated: 2022/03/30 15:51:10 by izaitcev      ########   odam.nl         */
+/*   Created: 2025/05/22 14:31:33 by iazaitce      #+#    #+#                 */
+/*   Updated: 2025/05/22 14:36:42 by iazaitce      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

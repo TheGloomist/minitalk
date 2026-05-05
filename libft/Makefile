@@ -6,12 +6,12 @@
 #    By: izaitcev <izaitcev@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/04/30 14:54:38 by izaitcev      #+#    #+#                  #
-#    Updated: 2023/05/15 14:44:00 by izaitcev      ########   odam.nl          #
+#    Updated: 2026/05/05 18:55:59 by iazaitce      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		= libft.a
-CC 			= gcc 
+CC 			= cc 
 CFLAGS 		= -Wall -Wextra -Werror -g # -fsanitize=address
 
 HEADERS	= -I ./include
@@ -21,16 +21,16 @@ OBJS = $(SRC:%.c=%.o)
 all: $(NAME)
 
 %.o: %.c 
-	$(CC) $(CFLAGS) -c -o $@ $< $(HEADERS)
+	@$(CC) $(CFLAGS) -c -o $@ $< $(HEADERS)
 
 $(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
+	@ar rc $(NAME) $(OBJS)
 	
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
