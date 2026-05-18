@@ -13,7 +13,7 @@ After the project is compiled:
 
  - In the second terminal window run _./client_ followed by the number recieved from the server and a string of characters in quotation marks. Example:
   
-        ./client 82362 "They're taking the hobbits to Isengard!"
+    >  <code>./client 82362 "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn"</code>
 
 The string given to the client should then be displayed by the server without the delay. The server should be able to handle multiple inputs without needing to restart.
 
@@ -23,4 +23,4 @@ Resourses:
 
 - https://www.systutorials.com/catching-the-signal-sent-by-kill-in-c-on-linux/ - general tutorial on signal handling
 
-The project was complete without the usage of AI. Most of the knowledge was acquired through peers and reading the manual.
+The project was complete without the usage of AI.

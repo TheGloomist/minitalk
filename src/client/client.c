@@ -6,7 +6,7 @@
 /*   By: iazaitce <iazaitce@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/05/05 18:46:17 by iazaitce      #+#    #+#                 */
-/*   Updated: 2026/05/05 18:46:26 by iazaitce      ########   odam.nl         */
+/*   Updated: 2026/05/18 20:35:27 by iazaitce      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	mini_atoi(const char *str)
 	}
 	if (str[i] != '\0' || i == 0)
 	{
-		write(2, "Please provide valid PID\n", 26);
+		write(2, "Invalid PID\n", 26);
 		exit (1);
 	}
 	return ((int)conv);
@@ -46,7 +46,7 @@ void	handle_client_sig(int sig)
 	g_is_validated = true;
 }
 
-bool	wait_for_stuff(void)
+bool	timeout_check(void)
 {
 	int	times_slept;
 
@@ -80,7 +80,7 @@ int	send_byte(char byte, int pid)
 			write(2, "Failed to send signal to the server\n", 37);
 			return (1);
 		}
-		if (wait_for_stuff() == false)
+		if (timeout_check() == false)
 		{
 			write (2, "Server timed out\n", 18);
 			return (1);
